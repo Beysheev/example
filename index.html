@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ilbirs</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="left">
+                    <div class="flex-shrink-0 p-3 bg-white" style="width: 100%; margin-top: 26px">
+                        <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                            <div class="img" style="text-align: center">
+                                <img src="logo.png" alt="ilbirs">
+                            </div>
+                        </a>
+                        <ul class="list-unstyled ps-0">
+                            <li class="mb-1">
+                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                                    Главная
+                                </button>
+                                <!--                <div class="collapse" id="home-collapse" style="">-->
+                                <!--                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">-->
+                                <!--                        <li><a href="#" class="link-dark rounded">Overview</a></li>-->
+                                <!--                        <li><a href="#" class="link-dark rounded">Updates</a></li>-->
+                                <!--                        <li><a href="#" class="link-dark rounded">Reports</a></li>-->
+                                <!--                    </ul>-->
+                                <!--                </div>-->
+                            </li>
+                            <li class="mb-1">
+                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                                    Доска
+                                </button>
+                                <div class="collapse" id="dashboard-collapse" style="">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="#" class="link-dark rounded">Overview</a></li>
+                                        <li><a href="#" class="link-dark rounded">Weekly</a></li>
+                                        <li><a href="#" class="link-dark rounded">Monthly</a></li>
+                                        <li><a href="#" class="link-dark rounded">Annually</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mb-1">
+                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                                    Заказы
+                                </button>
+                                <div class="collapse" id="orders-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="#" class="link-dark rounded">New</a></li>
+                                        <li><a href="#" class="link-dark rounded">Processed</a></li>
+                                        <li><a href="#" class="link-dark rounded">Shipped</a></li>
+                                        <li><a href="#" class="link-dark rounded">Returned</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="border-top my-3"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="right">
+                    <nav class="navbar navbar-light bg-light" style="background-color: #ffffff!important;">
+                        <div class="container-fluid" style="display: flex; justify-content: flex-end">
+                            <form class="d-flex" style="text-align: right">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Поиск</button>
+                            </form>
+                        </div>
+                    </nav>
+                    <div class="page-wrapper">
+                        <div class="page-content">
+                            <h6 class="mb-0 text-uppercase" style="padding-left: 30px">упаковочный лист</h6>
+                            <hr/>
+                            <div class="btns">
+                                <div class="buttons" style="margin-bottom: 30px">
+                                    <button type="button" class="btn btn-light">Клиент</button>
+                                    <button type="button" class="btn btn-light">Склад</button>
+                                    <button type="button" class="btn btn-light">Транспорт</button>
+                                    <button type="button" class="btn btn-light">Дата</button>
+                                </div>
+                                <div class="search">
+                                    <button type="button" class="btn btn-primary">Поиск</button>
+                                </div>
+                            </div>
+                            <div class="card" style="font-size: 14px">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="example" class="table table-striped table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Код груза</th>
+                                                <th>Наименование</th>
+                                                <th>Вид упаковки</th>
+                                                <th>Место</th>
+                                                <th>Вес брутто</th>
+                                                <th>Куб.м</th>
+                                                <th>Количество</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr><tr>
+                                                <td>GX0001</td>
+                                                <td>N-291-1</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>4</td>
+                                                <td>1000</td>
+                                                <td>0,79</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GX0002</td>
+                                                <td>N-291-2</td>
+                                                <td>Товары Taobao</td>
+                                                <td>коробка</td>
+                                                <td>32</td>
+                                                <td>1000</td>
+                                                <td>0,90</td>
+                                                <td>10</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
